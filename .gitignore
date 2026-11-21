@@ -1,0 +1,31 @@
+# Archivos generados por Maven
+**/target/
+
+# Configuración de editores
+**/.idea/
+**/.vscode/
+**/.settings/
+**/.classpath
+**/.project
+
+# Archivos temporales
+**/*.log
+**/bin/
+**/out/
+
+# Credenciales y variables privadas
+.env
+.env.*
+**/.env
+**/.env.*
+
+# Configuraciones locales privadas
+**/application-local.properties
+**/application-dev.properties
+**/application-prod.properties
+
+# Certificados y claves privadas
+**/*.pem
+**/*.key
+**/*.p12
+**/*.jks
