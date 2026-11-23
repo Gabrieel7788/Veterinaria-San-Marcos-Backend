@@ -29,9 +29,22 @@ public class SeguridadCitasConfig {
             .sessionManagement(s -> s.sessionCreationPolicy(
                 SessionCreationPolicy.STATELESS
             ))
-            .authorizeHttpRequests(auth ->
-                auth.anyRequest().authenticated()
+            
+            .authorizeHttpRequests(auth -> auth
+
+                // Permitir consultar Swagger sin iniciar sesión
+                .requestMatchers(
+                    "/swagger-ui.html",
+                    "/swagger-ui/**",
+                    "/v3/api-docs",
+                    "/v3/api-docs/**",
+                    "/v3/api-docs.yaml"
+                ).permitAll()
+
+                // Mantener protegidos los demás endpoints
+                .anyRequest().authenticated()
             )
+
             .oauth2ResourceServer(oauth ->
                 oauth.jwt(Customizer.withDefaults())
             );

@@ -64,9 +64,13 @@ public class CitaController {
             Long mascotaId, Jwt jwt) {
 
         try {
+                String urlBase = System.getenv().getOrDefault(
+        "MASCOTAS_SERVICE_URL",
+        "http://localhost:8081"
+    );
             cliente.get()
                 .uri(
-                    "http://localhost:8081/api/mascotas/{id}",
+                    urlBase + "/api/mascotas/{id}",
                     mascotaId
                 )
                 .headers(h -> h.setBearerAuth(

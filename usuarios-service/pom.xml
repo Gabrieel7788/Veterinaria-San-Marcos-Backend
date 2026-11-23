@@ -71,6 +71,13 @@
 			<version>0.13.0</version>
 		</dependency>
 
+	<!-- Documentacion de API con Swagger -->
+	<dependency>
+		<groupId>org.springdoc</groupId>
+		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+		<version>3.2.0</version>
+	</dependency>
+
 		<!-- Migraciones de base de datos -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -81,13 +88,6 @@
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-mysql</artifactId>
-		</dependency>
-
-		<!-- Documentacion de API REST con Swagger -->
-		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>3.2.0</version>
 		</dependency>
 
 		<dependency>
@@ -118,6 +118,31 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<!-- Cobertura de pruebas con JaCoCo -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.16</version>
+
+				<executions>
+					<execution>
+						<id>preparar-jacoco</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>generar-reporte-jacoco</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
